@@ -1,8 +1,8 @@
-# Casdoor .NET SDK
+# Casgate .NET SDK
 [![Actions Status](https://github.com/casdoor/casdoor-dotnet-sdk/workflows/Build/badge.svg)](https://github.com/casdoor/casdoor-dotnet-sdk/actions)
 [![GitHub](https://img.shields.io/github/license/casdoor/casdoor-dotnet-sdk)](https://github.com/casdoor/casdoor-dotnet-sdk/blob/master/LICENSE)
 
-The Casdoor's SDK for .NET/ASP.NET Core, which will allow you to easily connect your application to the Casdoor authentication system without having to implement it from scratch.
+The Casgate's SDK for .NET/ASP.NET Core, which will allow you to easily connect your application to the Casgate authentication system without having to implement it from scratch.
 
 **Note:** This SDK is currently in beta and is not yet ready for use.
 
