@@ -7,17 +7,17 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <PackageId>Casdoor.AspNetCore</PackageId>
+    <PackageId>Casgate.AspNetCore</PackageId>
     <PackageIcon>casgate.png</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <Description>The Casdoor's SDK for .NET, which will allow you to easily connect your application to the Casdoor authentication system without having to implement it from scratch.</Description>
-    <Authors>Casdoor</Authors>
-    <Product>Casdoor</Product>
+    <Description>The Casgate's SDK for .NET, which will allow you to easily connect your application to the Casgate authentication system without having to implement it from scratch.</Description>
+    <Authors>Casgate</Authors>
+    <Product>Casgate</Product>
     <RepositoryType>GIT</RepositoryType>
     <Copyright>Apache License 2.0</Copyright>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
-    <RepositoryUrl>https://github.com/casdoor/casdoor-dotnet-sdk</RepositoryUrl>
-    <PackageProjectUrl>https://github.com/casdoor/casdoor-dotnet-sdk</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/casgate/casgate-dotnet-sdk</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/casgate/casgate-dotnet-sdk</PackageProjectUrl>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
