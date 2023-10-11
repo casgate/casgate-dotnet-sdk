@@ -17,7 +17,7 @@ namespace Casdoor.Client
     public static class CasdoorConstants
     {
         public static readonly string DefaultCasdoorSuccessStatus = "ok";
-        public static readonly string[] AllUserProperties = new string[]
+        public static readonly string[] AllUserProperties =
         {
             "owner", "name", "createdTime", "updateTime", "id", "type",
             "password", "passwordSalt", "displayName", "avatar", "permanentAvatar",
