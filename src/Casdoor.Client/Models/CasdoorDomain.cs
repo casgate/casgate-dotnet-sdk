@@ -1,4 +1,4 @@
-﻿// Copyright 2023 The Casdoor Authors. All Rights Reserved.
+// Copyright 2023 The Casdoor Authors. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -16,11 +16,7 @@ using System.Text.Json.Serialization;
 
 namespace Casdoor.Client;
 
-/// <summary>
-///     CasdoorRole has the same definition as https://github.com/casdoor/casdoor/blob/master/object/role.go#L24
-/// </summary>
-
-public class CasdoorRole
+public class CasdoorDomain
 {
     [JsonPropertyName("owner")]
     public string? Owner { get; set; }
@@ -37,20 +33,12 @@ public class CasdoorRole
     [JsonPropertyName("description")]
     public string? Description { get; set; }
 
-    [JsonPropertyName("users")]
-    public IEnumerable<string>? Users { get; set; }
-
-    [JsonPropertyName("roles")]
-    public IEnumerable<string>? Roles { get; set; }
-
-    [JsonPropertyName("domains")]
-    public IEnumerable<string>? Domains { get; set; }
+    [JsonPropertyName("isEnabled")]
+    public bool? IsEnabled { get; set; }
 
     [JsonPropertyName("tags")]
     public IEnumerable<string>? Tags { get; set; }
 
-    [JsonPropertyName("isEnabled")]
-    public bool IsEnabled { get; set; }
+    [JsonPropertyName("domains")]
+    public IEnumerable<string>? Domains { get; set; }
 }
-
-
