@@ -41,4 +41,7 @@ public class CasdoorModel
 
     [JsonPropertyName("customPolicyMappingRules")]
     public string[][]? CustomPolicyMappingRules { get; set; }
+
+    [JsonPropertyName("isEnabled")]
+    public bool? IsEnabled { get; set; }
 }
