@@ -35,4 +35,10 @@ public class CasdoorModel
 
     [JsonPropertyName("modelText")]
     public string? ModelText { get; set; }
+
+    [JsonPropertyName("customPolicyMapping")]
+    public bool? CustomPolicyMapping { get; set; }
+
+    [JsonPropertyName("customPolicyMappingRules")]
+    public string[][]? CustomPolicyMappingRules { get; set; }
 }
