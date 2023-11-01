@@ -40,6 +40,9 @@ public class CasdoorRole
     [JsonPropertyName("users")]
     public IEnumerable<string>? Users { get; set; }
 
+    [JsonPropertyName("groups")]
+    public IEnumerable<string>? Groups { get; set; }
+
     [JsonPropertyName("roles")]
     public IEnumerable<string>? Roles { get; set; }
 
