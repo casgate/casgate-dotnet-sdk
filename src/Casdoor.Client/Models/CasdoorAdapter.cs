@@ -1,4 +1,3 @@
-﻿// Copyright 2023 The Casdoor Authors. All Rights Reserved.
 // Copyright 2023 The Casgate Authors. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,11 +16,7 @@ using System.Text.Json.Serialization;
 
 namespace Casdoor.Client;
 
-/// <summary>
-///     CasdoorRole has the same definition as https://github.com/casdoor/casdoor/blob/master/object/role.go#L24
-/// </summary>
-
-public class CasdoorRole
+public sealed class CasdoorAdapter
 {
     [JsonPropertyName("owner")]
     public string? Owner { get; set; }
@@ -29,32 +24,33 @@ public class CasdoorRole
     [JsonPropertyName("name")]
     public string? Name { get; set; }
 
+    [JsonPropertyName("table")]
+    public string? Table { get; set; }
+
     [JsonPropertyName("createdTime")]
     public string? CreatedTime { get; set; }
 
-    [JsonPropertyName("displayName")]
-    public string? DisplayName { get; set; }
+    [JsonPropertyName("useSameDb")]
+    public bool UseSameDb { get; set; }
 
-    [JsonPropertyName("description")]
-    public string? Description { get; set; }
+    [JsonPropertyName("type")]
+    public string? Type { get; set; }
 
-    [JsonPropertyName("users")]
-    public IEnumerable<string>? Users { get; set; }
+    [JsonPropertyName("databaseType")]
+    public string? DatabaseType { get; set; }
 
-    [JsonPropertyName("groups")]
-    public IEnumerable<string>? Groups { get; set; }
+    [JsonPropertyName("host")]
+    public string? Host { get; set; }
 
-    [JsonPropertyName("roles")]
-    public IEnumerable<string>? Roles { get; set; }
+    [JsonPropertyName("port")]
+    public int Port { get; set; }
 
-    [JsonPropertyName("domains")]
-    public IEnumerable<string>? Domains { get; set; }
+    [JsonPropertyName("user")]
+    public string? User { get; set; }
 
-    [JsonPropertyName("tags")]
-    public IEnumerable<string>? Tags { get; set; }
+    [JsonPropertyName("password")]
+    public string? Password { get; set; }
 
-    [JsonPropertyName("isEnabled")]
-    public bool IsEnabled { get; set; }
+    [JsonPropertyName("database")]
+    public string? Database { get; set; }
 }
-
-
