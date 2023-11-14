@@ -54,17 +54,26 @@ public class CasdoorLdap
     [JsonPropertyName("filterFields")]
     public string[]? FilterFields { get; set; }
 
+    [JsonPropertyName("enableRoleMapping")]
+    public bool? EnableRoleMapping { get; set; }
+
+    [JsonPropertyName("roleMappingItems")]
+    public RoleMappingItem[]? RoleMappingItems { get; set; }
+
     [JsonPropertyName("autoSync")]
     public int AutoSync { get; set; }
 
     [JsonPropertyName("lastSync")]
     public string? LastSync { get; set; }
 
+    [JsonPropertyName("cert")]
+    public string? Cert { get; set; }
+
+    [JsonPropertyName("enableAttributeMapping")]
+    public bool? EnableAttributeMapping { get; set; }
+
     [JsonPropertyName("attributeMappingItems")]
     public AttributeMappingItem[]? AttributeMappingItems { get; set; }
-
-    [JsonPropertyName("roleMappingItems")]
-    public RoleMappingItem[]? RoleMappingItems { get; set; }
 }
 
 public class CasdoorLdapUsers
