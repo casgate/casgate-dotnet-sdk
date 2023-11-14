@@ -59,6 +59,12 @@ public class CasdoorLdap
 
     [JsonPropertyName("lastSync")]
     public string? LastSync { get; set; }
+
+    [JsonPropertyName("attributeMappingItems")]
+    public AttributeMappingItem[]? AttributeMappingItems { get; set; }
+
+    [JsonPropertyName("roleMappingItems")]
+    public RoleMappingItem[]? RoleMappingItems { get; set; }
 }
 
 public class CasdoorLdapUsers
@@ -122,4 +128,25 @@ public class CasdoorLdapUser
 
     [JsonPropertyName("address")]
     public string? Address { get; set; }
+}
+
+public class AttributeMappingItem
+{
+    [JsonPropertyName("userField")]
+    public string? UserField { get; set; }
+
+    [JsonPropertyName("attribute")]
+    public string? Attribute { get; set; }
+}
+
+public class RoleMappingItem
+{
+    [JsonPropertyName("attribute")]
+    public string? Attribute { get; set; }
+
+    [JsonPropertyName("values")]
+    public string[]? Values { get; set; }
+
+    [JsonPropertyName("role")]
+    public string? Role { get; set; }
 }
