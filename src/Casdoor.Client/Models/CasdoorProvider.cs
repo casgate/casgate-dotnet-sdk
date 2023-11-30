@@ -76,7 +76,7 @@ public class CasdoorProvider
     public string? Scopes { get; set; }
 
     [JsonPropertyName("userMapping")]
-    public IDictionary<string, string>? UserMapping { get; set; }
+    public ProviderUserMapping? UserMapping { get; set; }
 
     [JsonPropertyName("host")]
     public string? Host { get; set; }
@@ -99,6 +99,9 @@ public class CasdoorProvider
     [JsonPropertyName("regionId")]
     public string? RegionId { get; set; }
 
+    [JsonPropertyName("roleMappingItems")]
+    public ProviderRoleMappingItem[]? RoleMappingItems { get; set; }
+
     [JsonPropertyName("signName")]
     public string? SignName { get; set; }
 
@@ -116,6 +119,9 @@ public class CasdoorProvider
 
     [JsonPropertyName("domain")]
     public string? Domain { get; set; }
+
+    [JsonPropertyName("enableRoleMapping")]
+    public bool? EnableRoleMapping { get; set; }
 
     [JsonPropertyName("bucket")]
     public string? Bucket { get; set; }
@@ -138,3 +144,34 @@ public class CasdoorProvider
     [JsonPropertyName("providerUrl")]
     public string? ProviderUrl { get; set; }
 }
+
+public class ProviderUserMapping
+{
+    [JsonPropertyName("id")]
+    public string[] Id { get; set; }
+
+    [JsonPropertyName("username")]
+    public string[] Username { get; set; }
+
+    [JsonPropertyName("email")]
+    public string[] Email { get; set; }
+
+    [JsonPropertyName("displayName")]
+    public string[] DisplayName { get; set; }
+
+    [JsonPropertyName("avatarUrl")]
+    public string[] AvatarUrl { get; set; }
+}
+
+public class ProviderRoleMappingItem
+{
+    [JsonPropertyName("attribute")]
+    public string? Attribute { get; set; }
+
+    [JsonPropertyName("values")]
+    public string[]? Values { get; set; }
+
+    [JsonPropertyName("role")]
+    public string? Role { get; set; }
+}
+

@@ -58,7 +58,7 @@ public class CasdoorLdap
     public bool? EnableRoleMapping { get; set; }
 
     [JsonPropertyName("roleMappingItems")]
-    public RoleMappingItem[]? RoleMappingItems { get; set; }
+    public LdapRoleMappingItem[]? RoleMappingItems { get; set; }
 
     [JsonPropertyName("autoSync")]
     public int AutoSync { get; set; }
@@ -73,7 +73,7 @@ public class CasdoorLdap
     public bool? EnableAttributeMapping { get; set; }
 
     [JsonPropertyName("attributeMappingItems")]
-    public AttributeMappingItem[]? AttributeMappingItems { get; set; }
+    public LdapAttributeMappingItem[]? AttributeMappingItems { get; set; }
 }
 
 public class CasdoorLdapUsers
@@ -139,7 +139,7 @@ public class CasdoorLdapUser
     public string? Address { get; set; }
 }
 
-public class AttributeMappingItem
+public class LdapAttributeMappingItem
 {
     [JsonPropertyName("userField")]
     public string? UserField { get; set; }
@@ -148,7 +148,7 @@ public class AttributeMappingItem
     public string? Attribute { get; set; }
 }
 
-public class RoleMappingItem
+public class LdapRoleMappingItem
 {
     [JsonPropertyName("attribute")]
     public string? Attribute { get; set; }
