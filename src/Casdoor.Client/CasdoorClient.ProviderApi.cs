@@ -81,6 +81,12 @@ public partial class CasdoorClient
         return result.DeserializeData<IEnumerable<CasdoorProvider>?>();
     }
 
+    public virtual async Task<CasdoorResponse?> TestProviderConnectionAsync(CasdoorProvider provider, CancellationToken cancellationToken = default)
+    {
+        var url = _options.GetActionUrl("test-provider");
+        return await PostAsJsonAsync(url, provider, cancellationToken);
+    }
+
     private static string HtmlEncode(string value)
     {
 #if NETFRAMEWORK

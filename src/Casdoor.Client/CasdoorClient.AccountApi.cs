@@ -95,4 +95,10 @@ public partial class CasdoorClient
         var url = _options.GetActionUrl("sync-ldap-users", queryMap);
         return PostAsJsonAsync(url, users, cancellationToken);
     }
+
+    public virtual async Task<CasdoorResponse?> TestLdapConnectionAsync(CasdoorLdap ldap, CancellationToken cancellationToken = default)
+    {
+        var url = _options.GetActionUrl("test-ldap");
+        return await PostAsJsonAsync(url, ldap, cancellationToken);
+    }
 }
