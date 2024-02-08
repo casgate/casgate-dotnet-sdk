@@ -453,4 +453,7 @@ public class CasdoorUser
 
     [JsonPropertyName("managedAccounts")]
     public IEnumerable<CasdoorManagedAccount>? ManagedAccounts { get; set; }
+
+    [JsonPropertyName("userIdProvider")]
+    public CasdoorUserIdProvider? UserIdProvider { get; set; }
 }
