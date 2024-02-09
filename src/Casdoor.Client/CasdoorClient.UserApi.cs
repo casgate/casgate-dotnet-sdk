@@ -34,7 +34,8 @@ public partial class CasdoorClient
         var queryMap = new QueryMapBuilder()
             .Add("owner", owner ?? _options.OrganizationName)
             .Add("sorter", sorter)
-            .Add("limit", limit.ToString()).QueryMap;
+            .Add("limit", limit.ToString())
+            .QueryMap;
         string url = _options.GetActionUrl("get-sorted-users", queryMap);
         var result = await _httpClient.GetFromJsonAsync<CasdoorResponse?>(url, cancellationToken: cancellationToken);
         return result.DeserializeData<IEnumerable<CasdoorUser>?>();
@@ -66,7 +67,8 @@ public partial class CasdoorClient
     {
         var queryMap = new QueryMapBuilder()
             .Add("owner", _options.OrganizationName)
-            .Add("email", email).QueryMap;
+            .Add("email", email)
+            .QueryMap;
         string url = _options.GetActionUrl("get-user", queryMap);
         var result = await _httpClient.GetFromJsonAsync<CasdoorResponse?>(url, cancellationToken: cancellationToken);
         return result.DeserializeData<CasdoorUser?>();
