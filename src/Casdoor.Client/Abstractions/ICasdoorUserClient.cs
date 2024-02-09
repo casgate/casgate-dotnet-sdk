@@ -16,9 +16,9 @@ namespace Casdoor.Client;
 
 public interface ICasdoorUserClient
 {
-    public Task<IEnumerable<CasdoorUser>?> GetUsersAsync(string? owner = null, CancellationToken cancellationToken = default);
+    public Task<IEnumerable<CasdoorUser>?> GetUsersAsync(string? owner = null, bool fillUserIdProvider = false, CancellationToken cancellationToken = default);
     public Task<IEnumerable<CasdoorUser>?> GetSortedUsersAsync(string sorter, int limit, string? owner = null, CancellationToken cancellationToken = default);
-    public Task<CasdoorUser?> GetUserAsync(string name, string? owner = null, CancellationToken cancellationToken = default);
+    public Task<CasdoorUser?> GetUserAsync(string name, string? owner = null, bool fillUserIdProvider = false, CancellationToken cancellationToken = default);
     public Task<CasdoorUser?> GetUserByEmailAsync(string email, string? owner = null, CancellationToken cancellationToken = default);
     public Task<CasdoorResponse?> AddUserAsync(CasdoorUser user, CancellationToken cancellationToken = default);
     public Task<CasdoorResponse?> UpdateUserAsync(CasdoorUser user, IEnumerable<string> propertyNames, CancellationToken cancellationToken = default );
