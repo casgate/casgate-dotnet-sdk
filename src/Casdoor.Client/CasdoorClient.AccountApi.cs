@@ -88,12 +88,12 @@ public partial class CasdoorClient
         return result.DeserializeData<CasdoorLdapUsers?>();
     }
 
-    public virtual Task<CasdoorResponse?> SyncLdapUsersAsync(string owner, string id, IEnumerable<CasdoorLdapUser> users, CancellationToken cancellationToken = default)
+    public virtual async Task<CasdoorSyncLdapResult?> SyncLdapUsersAsync(string owner, string id, IEnumerable<CasdoorLdapUser> users, CancellationToken cancellationToken = default)
     {
-         var queryMap = new QueryMapBuilder().Add("id", $"{owner}/{id}").QueryMap;
-
+        var queryMap = new QueryMapBuilder().Add("id", $"{owner}/{id}").QueryMap;
         var url = _options.GetActionUrl("sync-ldap-users", queryMap);
-        return PostAsJsonAsync(url, users, cancellationToken);
+        var result = await PostAsJsonAsync(url, users, cancellationToken);
+        return result.DeserializeData<CasdoorSyncLdapResult?>();
     }
 
     public virtual async Task<CasdoorResponse?> TestLdapConnectionAsync(CasdoorLdap ldap, CancellationToken cancellationToken = default)
