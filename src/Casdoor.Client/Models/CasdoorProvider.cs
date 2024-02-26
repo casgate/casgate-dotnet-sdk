@@ -54,6 +54,12 @@ public class CasdoorProvider
     [JsonPropertyName("clientSecret2")]
     public string? ClientSecret2 { get; set; }
 
+    [JsonPropertyName("nameIdFormat")]
+    public string? NameIdFormat { get; set; }
+
+    [JsonPropertyName("signatureAlgorithm")]
+    public string? SignatureAlgorithm { get; set; }
+
     [JsonPropertyName("cert")]
     public string? Cert { get; set; }
 
