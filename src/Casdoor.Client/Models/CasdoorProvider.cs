@@ -144,8 +144,11 @@ public class CasdoorProvider
     [JsonPropertyName("issuerUrl")]
     public string? IssuerUrl { get; set; }
 
-    [JsonPropertyName("enableSignAuthnRequest")]
-    public bool? EnableSignAuthnRequest { get; set; }
+    [JsonPropertyName("requestSignature")]
+    public string? RequestSignature { get; set; }
+
+    [JsonPropertyName("validateIdpSignature")]
+    public string? ValidateIdpSignature { get; set; }
 
     [JsonPropertyName("providerUrl")]
     public string? ProviderUrl { get; set; }
