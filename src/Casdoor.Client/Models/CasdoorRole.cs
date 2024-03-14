@@ -1,4 +1,5 @@
 ﻿// Copyright 2023 The Casdoor Authors. All Rights Reserved.
+// Copyright 2023 The Casgate Authors. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -40,11 +41,17 @@ public class CasdoorRole
     [JsonPropertyName("users")]
     public IEnumerable<string>? Users { get; set; }
 
+    [JsonPropertyName("groups")]
+    public IEnumerable<string>? Groups { get; set; }
+
     [JsonPropertyName("roles")]
     public IEnumerable<string>? Roles { get; set; }
 
     [JsonPropertyName("domains")]
     public IEnumerable<string>? Domains { get; set; }
+
+    [JsonPropertyName("tags")]
+    public IEnumerable<string>? Tags { get; set; }
 
     [JsonPropertyName("isEnabled")]
     public bool IsEnabled { get; set; }

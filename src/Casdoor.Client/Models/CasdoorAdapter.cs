@@ -1,4 +1,4 @@
-// Copyright 2023 The Casdoor Authors. All Rights Reserved.
+// Copyright 2023 The Casgate Authors. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -16,7 +16,7 @@ using System.Text.Json.Serialization;
 
 namespace Casdoor.Client;
 
-public class CasdoorModel
+public sealed class CasdoorAdapter
 {
     [JsonPropertyName("owner")]
     public string? Owner { get; set; }
@@ -24,24 +24,33 @@ public class CasdoorModel
     [JsonPropertyName("name")]
     public string? Name { get; set; }
 
+    [JsonPropertyName("table")]
+    public string? Table { get; set; }
+
     [JsonPropertyName("createdTime")]
     public string? CreatedTime { get; set; }
 
-    [JsonPropertyName("displayName")]
-    public string? DisplayName { get; set; }
+    [JsonPropertyName("useSameDb")]
+    public bool UseSameDb { get; set; }
 
-    [JsonPropertyName("description")]
-    public string? Description { get; set; }
+    [JsonPropertyName("type")]
+    public string? Type { get; set; }
 
-    [JsonPropertyName("modelText")]
-    public string? ModelText { get; set; }
+    [JsonPropertyName("databaseType")]
+    public string? DatabaseType { get; set; }
 
-    [JsonPropertyName("customPolicyMapping")]
-    public bool? CustomPolicyMapping { get; set; }
+    [JsonPropertyName("host")]
+    public string? Host { get; set; }
 
-    [JsonPropertyName("customPolicyMappingRules")]
-    public string[][]? CustomPolicyMappingRules { get; set; }
+    [JsonPropertyName("port")]
+    public int Port { get; set; }
 
-    [JsonPropertyName("isEnabled")]
-    public bool? IsEnabled { get; set; }
+    [JsonPropertyName("user")]
+    public string? User { get; set; }
+
+    [JsonPropertyName("password")]
+    public string? Password { get; set; }
+
+    [JsonPropertyName("database")]
+    public string? Database { get; set; }
 }

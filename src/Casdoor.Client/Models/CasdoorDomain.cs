@@ -16,7 +16,7 @@ using System.Text.Json.Serialization;
 
 namespace Casdoor.Client;
 
-public class CasdoorModel
+public class CasdoorDomain
 {
     [JsonPropertyName("owner")]
     public string? Owner { get; set; }
@@ -33,15 +33,12 @@ public class CasdoorModel
     [JsonPropertyName("description")]
     public string? Description { get; set; }
 
-    [JsonPropertyName("modelText")]
-    public string? ModelText { get; set; }
-
-    [JsonPropertyName("customPolicyMapping")]
-    public bool? CustomPolicyMapping { get; set; }
-
-    [JsonPropertyName("customPolicyMappingRules")]
-    public string[][]? CustomPolicyMappingRules { get; set; }
-
     [JsonPropertyName("isEnabled")]
     public bool? IsEnabled { get; set; }
+
+    [JsonPropertyName("tags")]
+    public IEnumerable<string>? Tags { get; set; }
+
+    [JsonPropertyName("domains")]
+    public IEnumerable<string>? Domains { get; set; }
 }

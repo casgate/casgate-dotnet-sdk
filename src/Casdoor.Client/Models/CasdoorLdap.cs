@@ -39,6 +39,9 @@ public class CasdoorLdap
     [JsonPropertyName("enableSsl")]
     public bool? EnableSsl { get; set; }
 
+    [JsonPropertyName("enableMutualTls")]
+    public bool? EnableMutualTls { get; set; }
+
     [JsonPropertyName("username")]
     public string? Username { get; set; }
 
@@ -54,11 +57,29 @@ public class CasdoorLdap
     [JsonPropertyName("filterFields")]
     public string[]? FilterFields { get; set; }
 
+    [JsonPropertyName("enableRoleMapping")]
+    public bool? EnableRoleMapping { get; set; }
+
+    [JsonPropertyName("roleMappingItems")]
+    public LdapRoleMappingItem[]? RoleMappingItems { get; set; }
+
     [JsonPropertyName("autoSync")]
     public int AutoSync { get; set; }
 
     [JsonPropertyName("lastSync")]
     public string? LastSync { get; set; }
+
+    [JsonPropertyName("cert")]
+    public string? Cert { get; set; }
+
+    [JsonPropertyName("clientCert")]
+    public string? ClientCert { get; set; }
+
+    [JsonPropertyName("enableAttributeMapping")]
+    public bool? EnableAttributeMapping { get; set; }
+
+    [JsonPropertyName("attributeMappingItems")]
+    public LdapAttributeMappingItem[]? AttributeMappingItems { get; set; }
 }
 
 public class CasdoorLdapUsers
@@ -122,4 +143,25 @@ public class CasdoorLdapUser
 
     [JsonPropertyName("address")]
     public string? Address { get; set; }
+}
+
+public class LdapAttributeMappingItem
+{
+    [JsonPropertyName("userField")]
+    public string? UserField { get; set; }
+
+    [JsonPropertyName("attribute")]
+    public string? Attribute { get; set; }
+}
+
+public class LdapRoleMappingItem
+{
+    [JsonPropertyName("attribute")]
+    public string? Attribute { get; set; }
+
+    [JsonPropertyName("values")]
+    public string[]? Values { get; set; }
+
+    [JsonPropertyName("role")]
+    public string? Role { get; set; }
 }

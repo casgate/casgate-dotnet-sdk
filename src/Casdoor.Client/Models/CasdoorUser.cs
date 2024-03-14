@@ -58,6 +58,9 @@ public class CasdoorUser
     [JsonPropertyName("password")]
     public string? Password { get; set; }
 
+    [JsonPropertyName("passwordChangeRequired")]
+    public bool? PasswordChangeRequired { get; set; }
+
     [JsonPropertyName("passwordSalt")]
     public string? PasswordSalt { get; set; }
 
@@ -450,4 +453,7 @@ public class CasdoorUser
 
     [JsonPropertyName("managedAccounts")]
     public IEnumerable<CasdoorManagedAccount>? ManagedAccounts { get; set; }
+
+    [JsonPropertyName("userIdProvider")]
+    public CasdoorUserIdProvider? UserIdProvider { get; set; }
 }

@@ -54,6 +54,12 @@ public class CasdoorProvider
     [JsonPropertyName("clientSecret2")]
     public string? ClientSecret2 { get; set; }
 
+    [JsonPropertyName("nameIdFormat")]
+    public string? NameIdFormat { get; set; }
+
+    [JsonPropertyName("signatureAlgorithm")]
+    public string? SignatureAlgorithm { get; set; }
+
     [JsonPropertyName("cert")]
     public string? Cert { get; set; }
 
@@ -76,7 +82,7 @@ public class CasdoorProvider
     public string? Scopes { get; set; }
 
     [JsonPropertyName("userMapping")]
-    public IDictionary<string, string>? UserMapping { get; set; }
+    public ProviderUserMapping? UserMapping { get; set; }
 
     [JsonPropertyName("host")]
     public string? Host { get; set; }
@@ -99,6 +105,9 @@ public class CasdoorProvider
     [JsonPropertyName("regionId")]
     public string? RegionId { get; set; }
 
+    [JsonPropertyName("roleMappingItems")]
+    public ProviderRoleMappingItem[]? RoleMappingItems { get; set; }
+
     [JsonPropertyName("signName")]
     public string? SignName { get; set; }
 
@@ -117,6 +126,9 @@ public class CasdoorProvider
     [JsonPropertyName("domain")]
     public string? Domain { get; set; }
 
+    [JsonPropertyName("enableRoleMapping")]
+    public bool? EnableRoleMapping { get; set; }
+
     [JsonPropertyName("bucket")]
     public string? Bucket { get; set; }
 
@@ -132,8 +144,11 @@ public class CasdoorProvider
     [JsonPropertyName("issuerUrl")]
     public string? IssuerUrl { get; set; }
 
-    [JsonPropertyName("enableSignAuthnRequest")]
-    public bool? EnableSignAuthnRequest { get; set; }
+    [JsonPropertyName("requestSignature")]
+    public string? RequestSignature { get; set; }
+
+    [JsonPropertyName("validateIdpSignature")]
+    public bool? ValidateIdpSignature { get; set; }
 
     [JsonPropertyName("providerUrl")]
     public string? ProviderUrl { get; set; }
@@ -141,3 +156,34 @@ public class CasdoorProvider
     [JsonPropertyName("customConfUrl")]
     public string? CustomConfUrl { get; set; }
 }
+
+public class ProviderUserMapping
+{
+    [JsonPropertyName("id")]
+    public string[] Id { get; set; }
+
+    [JsonPropertyName("username")]
+    public string[] Username { get; set; }
+
+    [JsonPropertyName("email")]
+    public string[] Email { get; set; }
+
+    [JsonPropertyName("displayName")]
+    public string[] DisplayName { get; set; }
+
+    [JsonPropertyName("avatarUrl")]
+    public string[] AvatarUrl { get; set; }
+}
+
+public class ProviderRoleMappingItem
+{
+    [JsonPropertyName("attribute")]
+    public string? Attribute { get; set; }
+
+    [JsonPropertyName("values")]
+    public string[]? Values { get; set; }
+
+    [JsonPropertyName("role")]
+    public string? Role { get; set; }
+}
+
