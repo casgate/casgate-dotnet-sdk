@@ -152,6 +152,9 @@ public class CasdoorProvider
 
     [JsonPropertyName("providerUrl")]
     public string? ProviderUrl { get; set; }
+
+    [JsonPropertyName("customConfUrl")]
+    public string? CustomConfUrl { get; set; }
 }
 
 public class ProviderUserMapping
