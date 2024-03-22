@@ -107,5 +107,5 @@ public class CasdoorOrganization
     public CasdoorAccountItem[]? AccountItems { get; set; }
 
     [JsonPropertyName("passwordSpecialChars")]
-    public string PasswordSpecialChars { get; set; }
+    public string? PasswordSpecialChars { get; set; }
 }
