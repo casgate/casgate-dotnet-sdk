@@ -25,7 +25,7 @@ public static class HttpClientExtensions
     internal static async Task<CasdoorResponse?> PostFileAsync(this HttpClient client, string? url,
         StreamContent postStream, CancellationToken cancellationToken = default)
     {
-        using MultipartFormDataContent formData = new MultipartFormDataContent();
+        using MultipartFormDataContent formData = new();
         formData.Add(postStream, "file", "file");
 
         HttpResponseMessage resp = await client.PostAsync(url, formData, cancellationToken);
