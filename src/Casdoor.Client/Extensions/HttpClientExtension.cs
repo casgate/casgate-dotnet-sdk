@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+using System.Net.Http;
 using System.Net.Http.Json;
 using IdentityModel.Client;
 
@@ -25,7 +26,7 @@ public static class HttpClientExtensions
     internal static async Task<CasdoorResponse?> PostFileAsync(this HttpClient client, string? url,
         StreamContent postStream, CancellationToken cancellationToken = default)
     {
-        using MultipartFormDataContent formData = new MultipartFormDataContent();
+        using MultipartFormDataContent formData = new();
         formData.Add(postStream, "file", "file");
 
         HttpResponseMessage resp = await client.PostAsync(url, formData, cancellationToken);

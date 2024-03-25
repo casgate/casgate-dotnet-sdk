@@ -124,7 +124,7 @@ public partial class CasdoorClient
             queryMapBuilder.Add("columns", columnsValue);
         }
 
-        user.Owner = owner ?? _options.OrganizationName;
+        user.Owner = owner ?? user.Owner ?? _options.OrganizationName;
         string url = _options.GetActionUrl(action, queryMapBuilder.QueryMap);
         return PostAsJsonAsync(url, user, cancellationToken);
     }
