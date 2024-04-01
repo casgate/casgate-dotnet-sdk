@@ -58,6 +58,18 @@ public class CasdoorSignupItem
     public string? Rule { get; set; }
 }
 
+public class CasdoorSigninMethod
+{
+    [JsonPropertyName("name")]
+    public string? Name { get; set; }
+
+    [JsonPropertyName("displayName")]
+    public string? DisplayName { get; set; }
+
+    [JsonPropertyName("rule")]
+    public string? Rule { get; set; }
+}
+
 public class CasdoorApplication
 {
     [JsonPropertyName("owner")]
@@ -119,6 +131,9 @@ public class CasdoorApplication
 
     [JsonPropertyName("providers")]
     public CasdoorProviderItem[]? Providers { get; set; }
+
+    [JsonPropertyName("signinMethods")]
+    public CasdoorSigninMethod[]? SigninMethods { get; set; }
 
     [JsonPropertyName("signupItems")]
     public CasdoorSignupItem[]? SignupItems { get; set; }
