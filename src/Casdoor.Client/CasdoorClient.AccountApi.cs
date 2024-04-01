@@ -63,7 +63,6 @@ public partial class CasdoorClient
         var url = _options.GetActionUrl("get-ldaps", queryMap);
 
         var result = await _httpClient.GetFromJsonAsync<CasdoorResponse?>(url, cancellationToken: cancellationToken);
-
         return result.DeserializeData<IEnumerable<CasdoorLdap>?>();
     }
 
