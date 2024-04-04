@@ -120,6 +120,9 @@ public class CasdoorProvider
     [JsonPropertyName("endpoint")]
     public string? Endpoint { get; set; }
 
+    [JsonPropertyName("endpointType")]
+    public string? EndpointType { get; set; }
+
     [JsonPropertyName("intranetEndpoint")]
     public string? IntranetEndpoint { get; set; }
 
