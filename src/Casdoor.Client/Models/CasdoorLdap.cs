@@ -39,8 +39,8 @@ public class CasdoorLdap
     [JsonPropertyName("enableSsl")]
     public bool? EnableSsl { get; set; }
 
-    [JsonPropertyName("enableMutualTls")]
-    public bool? EnableMutualTls { get; set; }
+    [JsonPropertyName("enableCryptographicAuth")]
+    public bool? EnableCryptographicAuth { get; set; }
 
     [JsonPropertyName("username")]
     public string? Username { get; set; }
