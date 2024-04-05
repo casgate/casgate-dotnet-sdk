@@ -88,6 +88,16 @@ public partial class CasdoorClient
         return await PostAsJsonAsync(url, provider, cancellationToken);
     }
 
+    public virtual async Task<string?> GetProviderSamlMetadataAsync(
+        string name, string owner = CasdoorConstants.DefaultCasdoorOwner, CancellationToken cancellationToken = default)
+    {
+        var id = $"{owner}/{HtmlEncode(name)}";
+        var queryMap = new QueryMapBuilder().Add("id", id).QueryMap;
+        var url = _options.GetActionUrl("get-provider-saml-metadata", queryMap);
+        var response = await _httpClient.GetAsync(url, cancellationToken);
+        return await response.Content.ReadAsStringAsync();
+    }
+
     private static string HtmlEncode(string value)
     {
 #if NETFRAMEWORK
