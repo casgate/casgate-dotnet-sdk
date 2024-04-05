@@ -23,4 +23,5 @@ public interface ICasdoorProviderClient
     public Task<IEnumerable<CasdoorProvider>?> GetProvidersAsync(string owner = CasdoorConstants.DefaultCasdoorOwner, CancellationToken cancellationToken = default);
     public Task<IEnumerable<CasdoorProvider>?> GetGlobalProvidersAsync(CancellationToken cancellationToken = default);
     public Task<CasdoorResponse?> TestProviderConnectionAsync(CasdoorProvider provider, CancellationToken cancellationToken = default);
+    public Task<string?> GetProviderSamlMetadataAsync(string name, string owner = CasdoorConstants.DefaultCasdoorOwner, CancellationToken cancellationToken = default);
 }
