@@ -23,8 +23,8 @@ public partial class CasdoorClient
         string? value = default,
         string? sortField = default,
         string? sortOrder = default,
-        string? fromDate = default,
-        string? endDate = default,
+        DateTime fromDate = default,
+        DateTime endDate = default,
         string? organizationName = default,
         CancellationToken cancellationToken = default)
     {
@@ -35,8 +35,8 @@ public partial class CasdoorClient
             .Add(nameof(value), value)
             .Add(nameof(sortField), sortField)
             .Add(nameof(sortOrder), sortOrder)
-            .Add(nameof(fromDate), fromDate)
-            .Add(nameof(endDate), endDate)
+            .Add(nameof(fromDate), fromDate != default ? fromDate.ToUniversalTime().ToString("yyyy-MM-dd'T'HH:mm:ss'Z'") : null)
+            .Add(nameof(endDate), endDate != default ? endDate.ToUniversalTime().ToString("yyyy-MM-dd'T'HH:mm:ss'Z'") : null)
             .Add(nameof(organizationName), organizationName)
             .QueryMap;
         var url = _options.GetActionUrl("get-records", queryMap);
