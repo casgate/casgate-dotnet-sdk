@@ -5,9 +5,11 @@ namespace Casdoor.Client;
 public class CasdoorUserIdProvider
 {
     [JsonPropertyName("createdTime")]
+    [JsonConverter(typeof(NullableDateTimeConverter))]
     public DateTime? CreatedTime { get; set; }
 
     [JsonPropertyName("lastSignInTime")]
+    [JsonConverter(typeof(NullableDateTimeConverter))]
     public DateTime? LastSignInTime { get; set; }
 
     [JsonPropertyName("owner")]

@@ -11,6 +11,7 @@ public class CasdoorCertificate
     public string? Name { get; set; }
 
     [JsonPropertyName("createdTime")]
+    [JsonConverter(typeof(NullableDateTimeConverter))]
     public DateTime? CreatedTime { get; set; }
 
     [JsonPropertyName("displayName")]
