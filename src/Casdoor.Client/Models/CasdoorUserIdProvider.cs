@@ -16,12 +16,18 @@ public class CasdoorUserIdProvider
     [JsonPropertyName("providerDisplayName")]
     public string? ProviderDisplayName { get; set; }
 
+    [JsonPropertyName("ldapServerName")]
+    public string? LdapServerName { get; set; }
+
     [JsonPropertyName("providerName")]
     public string? ProviderName { get; set; }
 
     [JsonPropertyName("usernameFromIdp")]
     public string? UsernameFromIdp { get; set; }
 
+    [JsonPropertyName("ldapId")]
+    public string? LdapId { get; set; }
+
     [JsonPropertyName("userId")]
-    public Guid? UserId { get; set; }
+    public string? UserId { get; set; }
 }

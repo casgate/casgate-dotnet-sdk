@@ -25,5 +25,6 @@ public interface ICasdoorUserClient
     public Task<CasdoorResponse?> UpdateUserForbiddenFlagAsync(CasdoorUser user, CancellationToken cancellationToken = default);
     public Task<CasdoorResponse?> UpdateUserDeletedFlagAsync(CasdoorUser user, CancellationToken cancellationToken = default);
     public Task<CasdoorResponse?> DeleteUserAsync(string name, CancellationToken cancellationToken = default);
+    public Task<CasdoorResponse?> AddUserIdProvider(CasdoorUserIdProvider userIdProvider, CancellationToken cancellationToken = default);
     public Task<CasdoorResponse?> CheckUserPasswordAsync(string name, CancellationToken cancellationToken = default);
 }

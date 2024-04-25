@@ -103,6 +103,12 @@ public partial class CasdoorClient
         return await ModifyUserAsync("delete-user", user, null, cancellationToken: cancellationToken);
     }
 
+    public virtual async Task<CasdoorResponse?> AddUserIdProvider(CasdoorUserIdProvider userIdProvider, CancellationToken cancellationToken = default)
+    {
+        var url = _options.GetActionUrl("add-user-id-provider");
+        return await PostAsJsonAsync(url, userIdProvider, cancellationToken);
+    }
+
     public virtual async Task<CasdoorResponse?> CheckUserPasswordAsync(string name, CancellationToken cancellationToken = default)
     {
         CasdoorUser? user = await GetUserAsync(name, cancellationToken: cancellationToken);
