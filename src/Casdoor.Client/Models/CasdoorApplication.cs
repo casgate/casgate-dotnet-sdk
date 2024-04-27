@@ -102,8 +102,11 @@ public class CasdoorApplication
     [JsonPropertyName("enablePassword")]
     public bool? EnablePassword { get; set; }
 
-    [JsonPropertyName("enableSignUp")]
-    public bool? EnableSignUp { get; set; }
+    [JsonPropertyName("enableInternalSignUp")]
+    public bool? EnableInternalSignUp { get; set; }
+
+    [JsonPropertyName("enableIdpSignUp")]
+    public bool? EnableIdpSignUp { get; set; }
 
     [JsonPropertyName("enableSigninSession")]
     public bool? EnableSigninSession { get; set; }
