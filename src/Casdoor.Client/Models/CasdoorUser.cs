@@ -409,8 +409,26 @@ public class CasdoorUser
     [JsonPropertyName("zoom")]
     public string? Zoom { get; set; }
 
+    [JsonPropertyName("metamask")]
+    public string? MetMask { get; set; }
+
+    [JsonPropertyName("web3onboard")]
+    public string? Web3Onboard { get; set; }
+
     [JsonPropertyName("custom")]
     public string? Custom { get; set; }
+
+    [JsonPropertyName("openid")]
+    public string? OpenId { get; set; }
+
+    [JsonPropertyName("keycloak")]
+    public string? Keycloak { get; set; }
+
+    [JsonPropertyName("aliyunidaas")]
+    public string? AliyunIDaaS { get; set; }
+
+    [JsonPropertyName("genericsaml")]
+    public string? GenericSAML { get; set; }
 
     [JsonPropertyName("preferredMfaType")]
     public string? PreferredMfaType { get; set; }
