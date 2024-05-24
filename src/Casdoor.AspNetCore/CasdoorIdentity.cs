@@ -51,7 +51,7 @@ namespace Casdoor.AspNetCore.Authentication
                 throw new ArgumentException($"{nameof(user)}.{nameof(user.Name)} should not be null");
             }
 
-            var response = await _casdoorClient.DeleteUserAsync(user.Name, cancellationToken);
+            var response = await _casdoorClient.DeleteUserAsync(user.Name, user.Owner, cancellationToken);
             return CasdoorResponse2IdentityResult(response);
         }
         /// <summary>
