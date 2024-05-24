@@ -92,14 +92,20 @@ public partial class CasdoorClient
         return UpdateUserAsync(user, new List<string> { "is_deleted" }, cancellationToken);
     }
 
-    public virtual async Task<CasdoorResponse?> DeleteUserAsync(string name,
+    public virtual async Task<CasdoorResponse?> DeleteUserAsync(string name, string owner,
         CancellationToken cancellationToken = default)
     {
-        CasdoorUser? user = await GetUserAsync(name, cancellationToken: cancellationToken);
+        CasdoorUser? user = await GetUserAsync(name, owner, cancellationToken: cancellationToken);
         if (user is null)
         {
             return null;
         }
+        return await ModifyUserAsync("delete-user", user, null, owner: owner, cancellationToken: cancellationToken);
+    }
+
+    public virtual async Task<CasdoorResponse?> DeleteUserAsync(CasdoorUser user,
+        CancellationToken cancellationToken = default)
+    {
         return await ModifyUserAsync("delete-user", user, null, cancellationToken: cancellationToken);
     }
 
