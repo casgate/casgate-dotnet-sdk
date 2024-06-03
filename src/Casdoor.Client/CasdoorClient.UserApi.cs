@@ -18,12 +18,21 @@ namespace Casdoor.Client;
 
 public partial class CasdoorClient
 {
-    public virtual async Task<IEnumerable<CasdoorUser>?> GetUsersAsync(string? owner = null, bool fillUserIdProvider = false, CancellationToken cancellationToken = default)
+    public virtual async Task<IEnumerable<CasdoorUser>?> GetUsersAsync(string? owner = null, string? filterFieldName = null, string? filterFieldValue = null,
+        bool fillUserIdProvider = false,
+        CancellationToken cancellationToken = default)
     {
-        var queryMap = new QueryMapBuilder()
+        var builder = new QueryMapBuilder()
             .Add("owner", owner ?? _options.OrganizationName)
-            .Add("fillUserIdProvider", fillUserIdProvider ? "true" : "false")
-            .QueryMap;
+            .Add("fillUserIdProvider", fillUserIdProvider ? "true" : "false");
+
+        if (!string.IsNullOrEmpty(filterFieldName))
+        {
+            builder.Add("field", filterFieldName);
+            builder.Add("value", filterFieldValue);
+        }
+
+        var queryMap = builder.QueryMap;
         string url = _options.GetActionUrl("get-users", queryMap);
         var result = await _httpClient.GetFromJsonAsync<CasdoorResponse?>(url, cancellationToken: cancellationToken);
         return result.DeserializeData<IEnumerable<CasdoorUser>?>();
@@ -92,7 +101,7 @@ public partial class CasdoorClient
         return UpdateUserAsync(user, new List<string> { "is_deleted" }, cancellationToken);
     }
 
-    public virtual async Task<CasdoorResponse?> DeleteUserAsync(string name, string owner,
+    public virtual async Task<CasdoorResponse?> DeleteUserAsync(string name, string? owner,
         CancellationToken cancellationToken = default)
     {
         CasdoorUser? user = await GetUserAsync(name, owner, cancellationToken: cancellationToken);
