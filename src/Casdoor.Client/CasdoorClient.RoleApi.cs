@@ -20,8 +20,7 @@ public partial class CasdoorClient
 {
     public virtual async Task<IEnumerable<CasdoorRole>?> GetRolesAsync(string? owner = null, string? filterFieldName = null, string? filterFieldValue = null, CancellationToken cancellationToken = default)
     {
-        var builder = new QueryMapBuilder()
-            .Add("owner", owner ?? _options.OrganizationName);
+        var builder = new QueryMapBuilder().Add("owner", owner ?? _options.OrganizationName);
 
         if (!string.IsNullOrEmpty(filterFieldName))
         {
