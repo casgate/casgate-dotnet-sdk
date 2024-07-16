@@ -55,6 +55,9 @@ public class CasdoorRole
 
     [JsonPropertyName("isEnabled")]
     public bool IsEnabled { get; set; }
+
+    [JsonPropertyName("manualOverride")]
+    public bool ManualOverride { get; set; }
 }
 
 

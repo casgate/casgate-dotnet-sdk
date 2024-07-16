@@ -36,17 +36,17 @@ public partial class CasdoorClient
         return await PostAsJsonAsync(url, application, cancellationToken);
     }
 
-    public virtual async Task<CasdoorResponse?> UpdateApplicationAsync(string id, CasdoorApplication newApplication, CancellationToken cancellationToken = default)
+    public virtual async Task<CasdoorResponse?> UpdateApplicationAsync(string id, CasdoorApplication application, CancellationToken cancellationToken = default)
     {
         var queryMap = new QueryMapBuilder().Add("id", id).QueryMap;
 
-        if (string.IsNullOrEmpty(newApplication.Owner))
+        if (string.IsNullOrEmpty(application.Owner))
         {
-            newApplication.Owner = CasdoorConstants.DefaultCasdoorOwner;
+            application.Owner = CasdoorConstants.DefaultCasdoorOwner;
         }
 
         var url = _options.GetActionUrl("update-application", queryMap);
-        return await PostAsJsonAsync(url, newApplication, cancellationToken);
+        return await PostAsJsonAsync(url, application, cancellationToken);
     }
 
     public virtual async Task<CasdoorApplication?> GetApplicationAsync(string id, CancellationToken cancellationToken = default)
