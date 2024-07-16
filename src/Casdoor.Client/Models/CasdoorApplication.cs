@@ -203,4 +203,7 @@ public class CasdoorApplication
 
     [JsonPropertyName("formBackgroundUrl")]
     public string? FormBackgroundUrl { get; set; }
+
+    [JsonPropertyName("userMappingStrategy")]
+    public string? UserMappingStrategy { get; set; }
 }

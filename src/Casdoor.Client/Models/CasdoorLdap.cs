@@ -80,6 +80,9 @@ public class CasdoorLdap
 
     [JsonPropertyName("attributeMappingItems")]
     public LdapAttributeMappingItem[]? AttributeMappingItems { get; set; }
+
+    [JsonPropertyName("userMappingStrategy")]
+    public string? UserMappingStrategy { get; set; }
 }
 
 public class CasdoorLdapUsers
