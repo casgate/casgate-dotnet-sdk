@@ -39,12 +39,12 @@
     <None Include="../../README.md" Pack="true" PackagePath="" />
     <None Include="../../assets/casgate.png" Pack="true" Visible="false" PackagePath="" />
     <None Remove="Casdoor.AspNetCore.csproj.DotSettings" />
-    <PackageReference Include="Microsoft.SourceLink.Github" Version="1.1.1" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.SourceLink.Github" Version="8.0.0" PrivateAssets="All" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.1" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="8.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="8.0.7" />
   </ItemGroup>
 
   <ItemGroup>
