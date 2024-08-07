@@ -12,7 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-using System.Net.Http;
 using System.Net.Http.Json;
 using IdentityModel.Client;
 
@@ -22,16 +21,6 @@ public static class HttpClientExtensions
 {
     internal static void SetCasdoorAuthentication(this HttpClient client, CasdoorOptions options) =>
         client.SetBasicAuthenticationOAuth(options.ClientId, options.ClientSecret);
-
-    internal static async Task<CasdoorResponse?> PostFileAsync(this HttpClient client, string? url,
-        StreamContent postStream, CancellationToken cancellationToken = default)
-    {
-        using MultipartFormDataContent formData = new();
-        formData.Add(postStream, "file", "file");
-
-        HttpResponseMessage resp = await client.PostAsync(url, formData, cancellationToken);
-        return await resp.ToCasdoorResponse(cancellationToken);
-    }
 
     internal static Task<CasdoorResponse?> ToCasdoorResponse(this HttpResponseMessage response, CancellationToken cancellationToken) =>
         response.Content.ReadFromJsonAsync<CasdoorResponse>(cancellationToken: cancellationToken);
