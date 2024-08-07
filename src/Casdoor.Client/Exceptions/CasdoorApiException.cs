@@ -12,24 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-using System.Runtime.Serialization;
-
 namespace Casdoor.Client;
 
 public class CasdoorApiException : Exception
 {
-    public CasdoorApiException()
-    {
-    }
-
     public CasdoorApiException(string? msg) : base(msg)
     {
     }
-
-    public CasdoorApiException(SerializationInfo info, StreamingContext context) : base(info, context)
-    {
-    }
-
     public CasdoorApiException(string? message, Exception? innerException) : base(message, innerException)
     {
     }
