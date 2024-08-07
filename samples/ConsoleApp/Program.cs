@@ -6,12 +6,12 @@ var httpClient = new HttpClient();
 var options = new CasdoorOptions
 {
     // Require: Basic options
-    Endpoint = "https://door.casdoor.com",
+    Endpoint = "",
     OrganizationName = "casbin",
     ApplicationName = "app-example",
     ApplicationType = "native", // webapp, webapi or native
-    ClientId = "b800a86702dd4d29ec4d",
-    ClientSecret = "1219843a8db4695155699be3a67f10796f2ec1d5",
+    ClientId = "",
+    ClientSecret = "",
 
     // Optional: The callback path that the client will be redirected to
     // after the user has authenticated. default is "/casdoor/signin-callback"

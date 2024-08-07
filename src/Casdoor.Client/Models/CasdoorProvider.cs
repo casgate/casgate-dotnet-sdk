@@ -163,19 +163,19 @@ public class CasdoorProvider
 public class ProviderUserMapping
 {
     [JsonPropertyName("id")]
-    public string[]? Id { get; set; }
+    public string[] Id { get; set; }
 
     [JsonPropertyName("username")]
-    public string[]? Username { get; set; }
+    public string[] Username { get; set; }
 
     [JsonPropertyName("email")]
-    public string[]? Email { get; set; }
+    public string[] Email { get; set; }
 
     [JsonPropertyName("displayName")]
-    public string[]? DisplayName { get; set; }
+    public string[] DisplayName { get; set; }
 
     [JsonPropertyName("avatarUrl")]
-    public string[]? AvatarUrl { get; set; }
+    public string[] AvatarUrl { get; set; }
 }
 
 public class ProviderRoleMappingItem

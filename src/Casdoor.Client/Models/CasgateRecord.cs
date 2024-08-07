@@ -58,10 +58,10 @@ public class CasgateRecord
     public string? Response { get; set; }
 
     [JsonPropertyName("detail")]
-    public CasgateRecordDetail? Detail { get; set; }
+    public CasgateRecordDetail Detail { get; set; }
 
     [JsonPropertyName("extendedUser")]
-    public CasdoorUser? ExtendedUser { get; set; }
+    public CasdoorUser ExtendedUser { get; set; }
 
     [JsonPropertyName("isTriggered")]
     public bool? IsTriggered { get; set; }
