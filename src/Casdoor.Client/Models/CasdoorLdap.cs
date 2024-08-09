@@ -83,6 +83,9 @@ public class CasdoorLdap
 
     [JsonPropertyName("userMappingStrategy")]
     public string? UserMappingStrategy { get; set; }
+
+    [JsonPropertyName("enableCaseInsensitivity")]
+    public bool? EnableCaseInsensitivity { get; set; }
 }
 
 public class CasdoorLdapUsers
