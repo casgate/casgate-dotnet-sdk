@@ -149,6 +149,9 @@ public class CasdoorLdapUser
 
     [JsonPropertyName("address")]
     public string? Address { get; set; }
+
+    [JsonPropertyName("roles")]
+    public string[]? Roles { get; set; }
 }
 
 public class LdapAttributeMappingItem
