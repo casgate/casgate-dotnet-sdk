@@ -61,11 +61,12 @@ public partial class CasdoorClient
         return result.DeserializeData<CasdoorUser?>();
     }
 
-    public virtual async Task<CasdoorUser?> GetUserByIdAsync(string id, string? owner = null, CancellationToken cancellationToken = default)
+    public virtual async Task<CasdoorUser?> GetUserByIdAsync(string id, string? owner = null, bool fillUserIdProvider = false, CancellationToken cancellationToken = default)
     {
         var queryMap = new QueryMapBuilder()
             .Add("userId", id)
             .Add("owner", owner ?? _options.OrganizationName)
+            .Add("fillUserIdProvider", fillUserIdProvider ? "true" : "false")
             .QueryMap;
         string url = _options.GetActionUrl("get-user", queryMap);
         var result = await GetFromJsonAsync<CasdoorResponse?>(url, cancellationToken: cancellationToken);
