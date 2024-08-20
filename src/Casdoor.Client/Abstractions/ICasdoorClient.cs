@@ -16,7 +16,7 @@ namespace Casdoor.Client;
 
 public interface ICasdoorClient :
     ICasdoorUserClient, ICasdoorTokenClient, ICasdoorServiceClient,
-    ICasdoorApplicationClient, ICasdoorOrganizationClient, ICasdoorProviderClient, ICasdoorAccountClient
+    ICasdoorApplicationClient, ICasdoorOrganizationClient, ICasdoorProviderClient, ICasdoorAccountClient, ICasdoorLdapClient
 {
 
 }

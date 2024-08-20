@@ -16,19 +16,7 @@ namespace Casdoor.Client;
 
 public interface ICasdoorAccountClient
 {
-    public Task<CasdoorResponse?> AddLdapAsync(CasdoorLdap ldap, CancellationToken cancellationToken = default);
-
-    public Task<CasdoorResponse?> DeleteLdapAsync(string owner, string id, CancellationToken cancellationToken = default);
-
-    public Task<CasdoorLdap?> GetLdapAsync(string ldapId, CancellationToken cancellationToken = default);
-
-    public Task<IEnumerable<CasdoorLdap>?> GetLdapsAsync(string owner, CancellationToken cancellationToken = default);
-
-    public Task<CasdoorSyncLdapResult?> SyncLdapUsersAsync(string owner, string id, IEnumerable<CasdoorLdapUser> users, CancellationToken cancellationToken = default);
-
-    public Task<CasdoorLdapUsers?> GetLdapUsersAsync(string ldapId, CancellationToken cancellationToken = default);
-
-    public Task<CasdoorResponse?> UpdateLdapAsync(string id, CasdoorLdap ldap, CancellationToken cancellationToken = default);
-
-    public Task<CasdoorResponse?> TestLdapConnectionAsync(CasdoorLdap ldap, CancellationToken cancellationToken = default);
+    public Task<CasdoorResponse?> SetPasswordAsync(CasdoorUser user, string oldPassword,
+        string newPassword,
+        CancellationToken cancellationToken = default);
 }
