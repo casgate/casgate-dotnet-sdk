@@ -21,6 +21,9 @@ public class CasdoorLightweightRole
     [JsonPropertyName("name")]
     public string? Name { get; set; }
 
+    [JsonPropertyName("displayName")]
+    public string? DisplayName { get; set; }
+
     [JsonPropertyName("description")]
     public string? Description { get; set; }
 
@@ -29,4 +32,13 @@ public class CasdoorLightweightRole
 
     [JsonPropertyName("tags")]
     public IEnumerable<string>? Tags { get; set; }
+
+    [JsonPropertyName("roles")]
+    public IEnumerable<string>? Roles { get; set; }
+
+    [JsonPropertyName("domains")]
+    public IEnumerable<string>? Domains { get; set; }
+
+    [JsonPropertyName("manualOverride")]
+    public bool ManualOverride { get; set; }
 }
