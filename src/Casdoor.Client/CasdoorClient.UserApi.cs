@@ -24,9 +24,9 @@ public partial class CasdoorClient
     {
         var builder = new QueryMapBuilder()
             .Add("owner", owner ?? _options.OrganizationName)
-            .Add("fillUserIdProvider", fillUserIdProvider ? "true" : "false");
+            .Add("fillUserIdProvider", fillUserIdProvider.ToString());
 
-        if (!string.IsNullOrEmpty(filterFieldName))
+        if (!string.IsNullOrEmpty(filterFieldName) || !string.IsNullOrEmpty(filterFieldValue))
         {
             builder.Add("field", filterFieldName);
             builder.Add("value", filterFieldValue);
@@ -38,15 +38,13 @@ public partial class CasdoorClient
         return result.DeserializeData<IEnumerable<CasdoorUser>?>();
     }
 
-    public virtual async Task<IEnumerable<CasdoorLightweightUser>?> GetLightweightUsersAsync(string? owner = null, string? filterFieldName = null, string? filterFieldValue = null,
-        bool fillUserIdProvider = false,
-        CancellationToken cancellationToken = default)
+    public virtual async Task<IEnumerable<CasdoorLightweightUser>?> GetLightweightUsersAsync(string? owner = null, string? filterFieldName = null, string? filterFieldValue = null, bool fillUserIdProvider = false, CancellationToken cancellationToken = default)
     {
         var builder = new QueryMapBuilder()
             .Add("owner", owner ?? _options.OrganizationName)
-            .Add("fillUserIdProvider", fillUserIdProvider ? "true" : "false");
+            .Add("fillUserIdProvider", fillUserIdProvider.ToString());
 
-        if (!string.IsNullOrEmpty(filterFieldName))
+        if (!string.IsNullOrEmpty(filterFieldName) || !string.IsNullOrEmpty(filterFieldValue))
         {
             builder.Add("field", filterFieldName);
             builder.Add("value", filterFieldValue);

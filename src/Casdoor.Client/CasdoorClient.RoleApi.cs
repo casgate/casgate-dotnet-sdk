@@ -39,7 +39,7 @@ public partial class CasdoorClient
     {
         var builder = new QueryMapBuilder().Add("owner", owner ?? _options.OrganizationName);
 
-        if (!string.IsNullOrEmpty(filterFieldName))
+        if (!string.IsNullOrEmpty(filterFieldName) || !string.IsNullOrEmpty(filterFieldValue))
         {
             builder.Add("field", filterFieldName);
             builder.Add("value", filterFieldValue);
