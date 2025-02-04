@@ -38,6 +38,26 @@ public partial class CasdoorClient
         return result.DeserializeData<IEnumerable<CasdoorUser>?>();
     }
 
+    public virtual async Task<IEnumerable<CasdoorLightweightUser>?> GetLightweightUsersAsync(string? owner = null, string? filterFieldName = null, string? filterFieldValue = null,
+        bool fillUserIdProvider = false,
+        CancellationToken cancellationToken = default)
+    {
+        var builder = new QueryMapBuilder()
+            .Add("owner", owner ?? _options.OrganizationName)
+            .Add("fillUserIdProvider", fillUserIdProvider ? "true" : "false");
+
+        if (!string.IsNullOrEmpty(filterFieldName))
+        {
+            builder.Add("field", filterFieldName);
+            builder.Add("value", filterFieldValue);
+        }
+
+        var queryMap = builder.QueryMap;
+        string url = _options.GetActionUrl("get-users", queryMap);
+        var result = await _httpClient.GetFromJsonAsync<CasdoorResponse?>(url, cancellationToken: cancellationToken);
+        return result.DeserializeData<IEnumerable<CasdoorLightweightUser>?>();
+    }
+
     public virtual async Task<IEnumerable<CasdoorUser>?> GetSortedUsersAsync(string sorter, int limit, string? owner = null, CancellationToken cancellationToken = default)
     {
         var queryMap = new QueryMapBuilder()

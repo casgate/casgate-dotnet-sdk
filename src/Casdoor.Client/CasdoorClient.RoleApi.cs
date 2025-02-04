@@ -35,6 +35,23 @@ public partial class CasdoorClient
         return result.DeserializeData<IEnumerable<CasdoorRole>?>();
     }
 
+    public virtual async Task<IEnumerable<CasdoorLightweightRole>?> GetLightweightRolesAsync(string? owner = null, string? filterFieldName = null, string? filterFieldValue = null, CancellationToken cancellationToken = default)
+    {
+        var builder = new QueryMapBuilder().Add("owner", owner ?? _options.OrganizationName);
+
+        if (!string.IsNullOrEmpty(filterFieldName))
+        {
+            builder.Add("field", filterFieldName);
+            builder.Add("value", filterFieldValue);
+        }
+
+        var queryMap = builder.QueryMap;
+
+        string url = _options.GetActionUrl("get-roles", queryMap);
+        var result = await _httpClient.GetFromJsonAsync<CasdoorResponse?>(url, cancellationToken: cancellationToken);
+        return result.DeserializeData<IEnumerable<CasdoorLightweightRole>?>();
+    }
+
     public virtual async Task<CasdoorRole?> GetRoleAsync(string name, string? owner = null,
         CancellationToken cancellationToken = default)
     {
