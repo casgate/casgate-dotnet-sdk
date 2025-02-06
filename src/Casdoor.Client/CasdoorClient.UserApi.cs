@@ -24,7 +24,7 @@ public partial class CasdoorClient
     {
         var builder = new QueryMapBuilder()
             .Add("owner", owner ?? _options.OrganizationName)
-            .Add("fillUserIdProvider", fillUserIdProvider ? "true" : "false");
+            .Add("fillUserIdProvider", fillUserIdProvider.ToString().ToLower());
 
         if (!string.IsNullOrEmpty(filterFieldName) && !string.IsNullOrEmpty(filterFieldValue))
         {
@@ -42,7 +42,7 @@ public partial class CasdoorClient
     {
         var builder = new QueryMapBuilder()
             .Add("owner", owner ?? _options.OrganizationName)
-            .Add("fillUserIdProvider", fillUserIdProvider ? "true" : "false");
+            .Add("fillUserIdProvider", fillUserIdProvider.ToString().ToLower());
 
         if (!string.IsNullOrEmpty(filterFieldName) && !string.IsNullOrEmpty(filterFieldValue))
         {
