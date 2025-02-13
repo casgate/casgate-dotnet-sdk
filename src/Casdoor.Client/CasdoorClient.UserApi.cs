@@ -54,18 +54,17 @@ public partial class CasdoorClient
             builder.Add("value", filterFieldValue);
         }
 
-        var usersCount = 0;
         var queryMap = builder.QueryMap;
         string url = _options.GetActionUrl("get-users", queryMap);
         try
         {
             var result = await _httpClient.GetFromJsonAsync<CasdoorResponse?>(url, cancellationToken: cancellationToken);
-            int.TryParse(result?.Data2?.ToString() ?? string.Empty, out usersCount);
+            int.TryParse(result?.Data2?.ToString(), out var usersCount);
             return (result.DeserializeData<IEnumerable<CasdoorLightweightUser>?>(), usersCount);
         }
         catch
         {
-            return ([], usersCount);
+            return ([], 0);
         }
     }
 
