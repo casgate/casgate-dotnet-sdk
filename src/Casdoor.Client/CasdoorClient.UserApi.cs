@@ -38,13 +38,13 @@ public partial class CasdoorClient
         return result.DeserializeData<IEnumerable<CasdoorUser>?>();
     }
 
-    public virtual async Task<IEnumerable<CasdoorLightweightUser>?> GetLightweightUsersAsync(string? owner = null, int page = 1, string pageSize = "500", string? filterFieldName = null, string? filterFieldValue = null, bool fillUserIdProvider = false, CancellationToken cancellationToken = default)
+    public virtual async Task<(IEnumerable<CasdoorLightweightUser>?, int)> GetLightweightUsersAsync(string? owner = null, int page = 1, int pageSize = 500, string? filterFieldName = null, string? filterFieldValue = null, bool fillUserIdProvider = false, CancellationToken cancellationToken = default)
     {
         var builder = new QueryMapBuilder()
             .Add("owner", owner ?? _options.OrganizationName)
             .Add("fillUserIdProvider", fillUserIdProvider.ToString().ToLower())
             .Add("p", page.ToString())
-            .Add("pageSize", pageSize)
+            .Add("pageSize", pageSize.ToString())
             .Add("sortField", "name")
             .Add("sortOrder", "ascend");
 
@@ -54,16 +54,18 @@ public partial class CasdoorClient
             builder.Add("value", filterFieldValue);
         }
 
+        var usersCount = 0;
         var queryMap = builder.QueryMap;
         string url = _options.GetActionUrl("get-users", queryMap);
         try
         {
             var result = await _httpClient.GetFromJsonAsync<CasdoorResponse?>(url, cancellationToken: cancellationToken);
-            return result.DeserializeData<IEnumerable<CasdoorLightweightUser>?>();
+            int.TryParse(result?.Data2?.ToString() ?? string.Empty, out usersCount);
+            return (result.DeserializeData<IEnumerable<CasdoorLightweightUser>?>(), usersCount);
         }
         catch
         {
-            return [];
+            return ([], usersCount);
         }
     }
 
