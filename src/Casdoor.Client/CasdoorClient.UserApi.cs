@@ -38,11 +38,15 @@ public partial class CasdoorClient
         return result.DeserializeData<IEnumerable<CasdoorUser>?>();
     }
 
-    public virtual async Task<IEnumerable<CasdoorLightweightUser>?> GetLightweightUsersAsync(string? owner = null, string? filterFieldName = null, string? filterFieldValue = null, bool fillUserIdProvider = false, CancellationToken cancellationToken = default)
+    public virtual async Task<IEnumerable<CasdoorLightweightUser>?> GetLightweightUsersAsync(string? owner = null, int page = 1, string pageSize = "500", string? filterFieldName = null, string? filterFieldValue = null, bool fillUserIdProvider = false, CancellationToken cancellationToken = default)
     {
         var builder = new QueryMapBuilder()
             .Add("owner", owner ?? _options.OrganizationName)
-            .Add("fillUserIdProvider", fillUserIdProvider.ToString().ToLower());
+            .Add("fillUserIdProvider", fillUserIdProvider.ToString().ToLower())
+            .Add("p", page.ToString())
+            .Add("pageSize", pageSize)
+            .Add("sortField", "name")
+            .Add("sortOrder", "ascend");
 
         if (!string.IsNullOrEmpty(filterFieldName) && !string.IsNullOrEmpty(filterFieldValue))
         {
@@ -52,8 +56,15 @@ public partial class CasdoorClient
 
         var queryMap = builder.QueryMap;
         string url = _options.GetActionUrl("get-users", queryMap);
-        var result = await _httpClient.GetFromJsonAsync<CasdoorResponse?>(url, cancellationToken: cancellationToken);
-        return result.DeserializeData<IEnumerable<CasdoorLightweightUser>?>();
+        try
+        {
+            var result = await _httpClient.GetFromJsonAsync<CasdoorResponse?>(url, cancellationToken: cancellationToken);
+            return result.DeserializeData<IEnumerable<CasdoorLightweightUser>?>();
+        }
+        catch
+        {
+            return [];
+        }
     }
 
     public virtual async Task<IEnumerable<CasdoorUser>?> GetSortedUsersAsync(string sorter, int limit, string? owner = null, CancellationToken cancellationToken = default)
