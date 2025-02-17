@@ -108,4 +108,10 @@ public class CasdoorOrganization
 
     [JsonPropertyName("passwordSpecialChars")]
     public string? PasswordSpecialChars { get; set; }
+
+    [JsonPropertyName("passwordMaxLength")]
+    public int PasswordMaxLength { get; set; }
+
+    [JsonPropertyName("passwordMinLength")]
+    public int PasswordMinLength { get; set; }
 }
