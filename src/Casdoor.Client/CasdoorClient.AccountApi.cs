@@ -21,13 +21,15 @@ public partial class CasdoorClient
     public virtual Task<CasdoorResponse?> SetPasswordAsync(CasdoorUser user, string oldPassword, string newPassword,
         CancellationToken cancellationToken = default)
     {
-        var queryMap = new QueryMapBuilder()
-            .Add("userOwner", user.Owner ?? string.Empty)
-            .Add("userName", user.Name ?? string.Empty)
-            .Add("oldPassword", oldPassword)
-            .Add("newPassword", newPassword).QueryMap;
+        var param = new Dictionary<string, string>
+        {
+            { "owner", user.Owner },
+            { "name", user.Name },
+            { "oldPassword", oldPassword },
+            { "newPassword", newPassword }
+        };
 
-        string url = _options.GetActionUrl("set-password", queryMap);
-        return PostAsJsonAsync(url, user, cancellationToken);
+        string url = _options.GetActionUrl("set-password");
+        return PostAsJsonAsync(url, param, cancellationToken);
     }
 }
