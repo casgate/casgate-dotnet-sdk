@@ -23,8 +23,8 @@ public partial class CasdoorClient
     {
         var param = new Dictionary<string, string>
         {
-            { "owner", user.Owner },
-            { "name", user.Name },
+            { "userOwner", user.Owner },
+            { "userName", user.Name },
             { "oldPassword", oldPassword },
             { "newPassword", newPassword }
         };
