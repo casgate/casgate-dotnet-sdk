@@ -41,4 +41,18 @@ public partial class CasdoorClient
         HttpResponseMessage resp = await _httpClient.PostAsJsonAsync(requestUri, value, cancellationToken);
         return await resp.ToCasdoorResponse(cancellationToken);
     }
+
+    internal async Task<CasdoorResponse?> PostAsMultipartAsync(string? requestUri, Dictionary<string, string> param, CancellationToken cancellationToken = default)
+    {
+        var multiPartContent = new MultipartFormDataContent();
+
+        foreach (var pair in param)
+        {
+            var stringContent = new StringContent(pair.Value);
+            multiPartContent.Add(stringContent, pair.Key);
+        }
+        _httpClient.SetCasdoorAuthentication(_options);
+        HttpResponseMessage resp = await _httpClient.PostAsync(requestUri, multiPartContent, cancellationToken);
+        return await resp.ToCasdoorResponse(cancellationToken);
+    }
 }

@@ -30,6 +30,6 @@ public partial class CasdoorClient
         };
 
         string url = _options.GetActionUrl("set-password");
-        return PostAsJsonAsync(url, param, cancellationToken);
+        return PostAsMultipartAsync(url, param, cancellationToken);
     }
 }
